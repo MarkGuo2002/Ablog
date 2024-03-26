@@ -2,15 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer components {
-
-    .sidebar-icon {
+/* .sidebar-icon {
         @apply relative flex items-center justify-center
                h-14 w-14 mx-4 my-2 rounded
                text-red-300
                hover:bg-slate-100 ease-linear
                duration-100 transition-all
                cursor-pointer; 
+    } */
+@layer components {
+    .sidebar-option {
+        @apply rounded-xl bg-white flex justify-items-start items-center w-11/12 p-2 cursor-pointer
+         hover:bg-primary duration-100 ease-in-out;
+    }
+
+    .parent-selected{
+        @apply  group-hover:text-selectedPrimaryStrong ease-in-out duration-200;
     }
 }
