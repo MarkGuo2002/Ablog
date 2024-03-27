@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.transition-width{
+    transition: width 0.3s;
+}
 /* .sidebar-icon {
         @apply relative flex items-center justify-center
                h-14 w-14 mx-4 my-2 rounded

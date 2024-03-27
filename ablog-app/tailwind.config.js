@@ -11,7 +11,7 @@ module.exports = {
           secondary: '#2176c4',
           primaryStrong: '#f14881',
           selectedPrimaryStrong: '#be3865'
-      } 
+      },
 
     },
   },
