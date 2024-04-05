@@ -12,6 +12,9 @@ module.exports = {
           primaryStrong: '#f14881',
           selectedPrimaryStrong: '#be3865'
       },
+      transitionProperty: {
+        'width': 'width'
+      },
 
     },
   },

@@ -9,7 +9,7 @@ FaFile FaRegEnvelope
 const Sidebar = () =>{
     const { toggleSidebar, setToggleSidebar } = useSidebarContext();
     return(
-        <div className={`${toggleSidebar ? 'w-60' : 'w-18'}  block fixed top-0 left-0 h-screen flex flex-col border-r-2 border-[#f5f5f5] bg-white transition-all duration-300 ease-in-out`} >
+        <div className={`transition-width duration-300 ease-in-out ${toggleSidebar ? 'w-60' : 'w-16'}  fixed top-0 left-0 h-screen flex flex-col border-r-2 border-[#f5f5f5] bg-white `} >
             <div className='logo-burger flex justify-start items-center px-4 pt-6 pb-2'>
                 <div className={`${toggleSidebar ? 'block' : 'hidden'} flex items-center`}>
                     <img src={Logo} alt="Logo" className="w-8 h-8" />
@@ -34,7 +34,7 @@ const Sidebar = () =>{
                 <SidebarOption icon={ <FaRegTrashCan size='20'/>} text='Trash' number='3'/>
                 <SidebarOption icon={ <FaPalette size='20'/>} text='Personalize'/>
             </div>
-
+            
             <NightMode />
             
 
@@ -47,7 +47,7 @@ const Sidebar = () =>{
 const SidebarOption = ({ icon, text, number = "" }) => {
     const { toggleSidebar } = useSidebarContext();
     return (
-        <div className='sidebar-option group'>
+        <div className='sidebar-option flex justify-center content-center group'>
             <div className='sidebar-icon flex content-center justify-center text-black group-hover:rotate-12 group-hover:translate-x-1 group-hover:text-primaryStrong duration-100'>
                 {icon}
             </div>
@@ -60,15 +60,18 @@ const SidebarOption = ({ icon, text, number = "" }) => {
         </div>
     );
 };
-
+// 
 
 const NightMode = () => {
+    const { toggleSidebar } = useSidebarContext();
+    return(
     <div className='mt-auto bg-slate-200 p-4 flex items-center justify-center cursor-pointer hover:bg-slate-800 group'>
                 <i className='text-black group-hover:text-white duration-300'>
                     <FaMoon size='24'/>
                 </i>
-                <p className=' text-lg ml-4 group-hover:text-white duration-300'>Night Mode</p>
-            </div>
-}
+                <p className={` ${!toggleSidebar && 'hidden'} text-lg ml-4 group-hover:text-white duration-300`}>Night Mode</p>
+    </div>
+    );
+};
 
 export default Sidebar;
