@@ -1,9 +1,10 @@
+import Profile from "./Profile";
 import { FaMagnifyingGlass, FaMusic } from "react-icons/fa6";
-import anya from "../assets/anya.jpg"
+
 
 const Navbar = () => {
     return(
-        <div className="wrapper ml-60 w-full h-20 shadow-sm flex items-center justify-between px-16">
+        <div className="wrapper w-full h-20 shadow-sm flex items-center justify-between px-36">
                 
                 <SearchBar />
                 <Profile />
@@ -24,8 +25,3 @@ const SearchBar = () => (
     </div>
 )
 
-const Profile = () => (
-    <div>
-        <img className="rounded-full w-14 h-14" src={anya}/>
-    </div>
-)

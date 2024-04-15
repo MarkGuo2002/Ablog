@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import NonSidebarContainer from './components/NonSidebarContainer';
 import { useSidebarContext } from './utils/SidebarContext';
 import { FaBars } from "react-icons/fa6";
 
@@ -10,11 +11,11 @@ function App() {
     <div>
       <div className='flex'>
         <Sidebar/>
-        <Navbar/> 
+        <NonSidebarContainer/>
       </div>
 
         
-    
+
     </div>
   );
 }
