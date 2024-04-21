@@ -4,13 +4,9 @@ import { FaMagnifyingGlass, FaMusic } from "react-icons/fa6";
 
 const Navbar = () => {
     return(
-        <div className="wrapper w-full h-20 shadow-sm flex items-center justify-between px-36">
-                
+        <div className="wrapper w-full h-20 shadow-sm flex items-center justify-between px-36">           
                 <SearchBar />
                 <Profile />
-
-               
-                
         </div>
             
     )

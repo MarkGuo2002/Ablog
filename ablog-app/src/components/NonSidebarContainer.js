@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Navbar from './Navbar';
-import Login from './Login';
+import Authentication from './Authentication';
 import { useSidebarContext } from '../utils/SidebarContext';
 
 const NonSidebarContainer = () =>{
@@ -9,7 +9,6 @@ const NonSidebarContainer = () =>{
     return (
         <div className={`${toggleSidebar ? "ml-60" : "ml-16"} bg-white h-screen w-screen transition-all duration-300 ease-in-out`}>
             <Navbar/>
-            <Login/>
         </div>
     )
 }

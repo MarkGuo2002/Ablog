@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const pool = require('../config/db');
 
+const jwt_secret = 'helloworld'; // Change this to your own secret
+
 // Register new user
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
@@ -15,9 +17,15 @@ router.post('/register', async (req, res) => {
       'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *',
       [username, hashedPassword]
     );
-    res.json(newUser.rows[0]);
+
+    //send status, msg and user data
+    res.status(201).json({ msg: 'User created', user: newUser.rows[0] });
+
   } catch (err) {   
-    console.error(err.message);
+    console.error(err.message, err.code);
+    if (err.code === '23505') {
+      return res.status(400).json({ msg: 'User already exists' });
+    }
     res.status(500).send('Server error');
   }
 });
@@ -37,7 +45,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user.rows[0].user_id }, 'yourSecret', { expiresIn: 3600 });
+    const token = jwt.sign({ id: user.rows[0].user_id }, jwt_secret, { expiresIn: 3600 });
     res.json({ token });
   } catch (err) {
     console.error(err.message);
