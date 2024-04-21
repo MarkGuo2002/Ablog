@@ -17,7 +17,7 @@ const Profile = () => {
     return(
     <div className="relative group">
         <img onClick={handleDropdown} className="rounded-full w-14 h-14 hover:scale-110 hover:brightness-90 transition-all duration-300" src={anya}/>
-        <div className={` flex-col gap-2 absolute bg-white border border-gray-200 rounded shadow-lg p-2 w-40 right-0 ${displayDropdown ? "opacity-100 translate-y-3 pointer-events-auto" : "opacity-0 pointer-events-none"} transition-all duration-200 ease-in-out`}>
+        <div className={` flex-col gap-2 absolute bg-white border border-gray-200 rounded-xl shadow-lg p-2 w-40 right-0 ${displayDropdown ? "opacity-100 translate-y-3 pointer-events-auto" : "opacity-0 pointer-events-none"} transition-all duration-200 ease-in-out`}>
             <div className="flex items-center justify-center gap-2 my-2 cursor-pointer text-black hover:text-primaryStrong transition-all ">
                 <FaRegCircleUser size='20' />
                 <a href="/account" className=" font-medium">Account</a>

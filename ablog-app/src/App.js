@@ -3,6 +3,7 @@ import ProtectedRoute from "./utils/ProtectedRoutes";
 
 import Home from "./components/Home";
 import Authentication from "./components/Authentication";
+import UnauthenticatedHome from './components/UnauthenticatedHome';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route path="/home" element={<Home/>}/>
         </Route>
         {/* Authentication route */}
-        <Route path="/authentication" element={<Authentication/>}/>
+        <Route path="/authentication" element={<UnauthenticatedHome/>}/>
       </Routes>
     </Router>
   );
