@@ -33,7 +33,7 @@ function UnauthenticatedHome() {
                 </div>
             </div>
                     <div className='right-container w-screen lg:w-1/2 bg-white flex flex-col items-center justify-center'>
-                    <img src={Logo} alt="Logo" className="w-2/12 h-2/12 drop-shadow-lg" />
+                    <img src={Logo} alt="Logo" className="w-28 h-28 drop-shadow-lg" />
                     <p className= 'text-[4em] drop-shadow-md text-primaryStrong font-medium ml-4 bg-gradient-to-r from-slate-200 to-primaryStrong text-transparent bg-clip-text'>Ablog</p>
 
                 <Authentication/>
