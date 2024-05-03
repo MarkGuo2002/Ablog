@@ -6,6 +6,17 @@ const pool = require('../config/db');
 
 const jwt_secret = 'helloworld'; // Change this to your own secret
 
+//retrieve all users
+router.get('/retrieve', async (req, res) => {
+  try {
+    const users = await pool.query('SELECT * FROM users');
+    res.json(users.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
 // Register new user
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;

@@ -1,4 +1,3 @@
---tables for the database
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
@@ -11,9 +10,8 @@ CREATE TABLE users (
 
 CREATE TABLE blogs (
     blog_id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) UNIQUE NOT NULL,
     content TEXT NOT NULL,
-    tags VARCHAR(255) NOT NULL,
     is_draft BOOLEAN DEFAULT TRUE,
     is_trash BOOLEAN DEFAULT FALSE,
     blog_music_url VARCHAR(255),
@@ -23,11 +21,22 @@ CREATE TABLE blogs (
     user_id INT REFERENCES users(user_id) ON DELETE CASCADE
 );
 
+CREATE TABLE tags (
+    tag_id SERIAL PRIMARY KEY,
+    tag VARCHAR(255) UNIQUE NOT NULL,
+    user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+    blog_id INT REFERENCES blogs(blog_id),
+    occurrence INT DEFAULT 0
+);
+
 CREATE TABLE blog_photos (
     photo_id SERIAL PRIMARY KEY,
     photo_url VARCHAR(255) NOT NULL,
     blog_id INT REFERENCES blogs(blog_id) ON DELETE CASCADE
 );
+
+-- Triggers and indexes remain similar; just ensure they reference the correct keys.
+
 
 
 -- trigger function to update the updated_at column

@@ -1,4 +1,5 @@
 import { useSidebarContext } from '../utils/SidebarContext';
+import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo.png';
 import { FaNoteSticky, FaNotesMedical, FaBars, FaPalette, FaRegClipboard, FaRegEnvelope,
@@ -22,17 +23,17 @@ const Sidebar = () =>{
             </div>
 
 
-            <div className='new-blog flex flex-col gap-2 items-center mt-8 group cursor-pointer'>
+            <Link to='/home/new-blog' className='new-blog flex flex-col gap-2 items-center mt-8 group cursor-pointer'>
                 <i className='bg-primaryStrong text-white p-4 rounded-full group-hover:bg-selectedPrimaryStrong group-hover:text-primary duration-200'><FaNotesMedical size='20' /></i>
                 <p className={`${!toggleSidebar && 'hidden'} font-bold parent-selected`}>New Blog</p>
-            </div>
+            </Link>
 
 
             <div className='sidebar-options-container flex flex-col items-center justify-center gap-1 mt-5' >
-                <SidebarOption icon={ <FaRegEnvelope size='20'/>} text='My Blogs' number='12'/>
-                <SidebarOption icon={ <FaRegClipboard size='20'/>} text='Drafts' number='1'/>
-                <SidebarOption icon={ <FaRegTrashCan size='20'/>} text='Trash' number='3'/>
-                <SidebarOption icon={ <FaPalette size='20'/>} text='Personalize'/>
+                <SidebarOption icon={ <FaRegEnvelope size='20'/>} text='My Blogs' number='12' to='/home/my-blogs'/>
+                <SidebarOption icon={ <FaRegClipboard size='20'/>} text='Drafts' number='1' to='/home/drafts'/>
+                <SidebarOption icon={ <FaRegTrashCan size='20'/>} text='Trash' number='3' to='/home/trash'/>
+                <SidebarOption icon={ <FaPalette size='20'/>} text='Personalize' to='/home/personalize'/>
             </div>
             
             <NightMode />
@@ -44,10 +45,10 @@ const Sidebar = () =>{
 
 // `${!toggleSidebar && 'hidden'}`
 
-const SidebarOption = ({ icon, text, number = "" }) => {
+const SidebarOption = ({ icon, text, number = "", to }) => {
     const { toggleSidebar } = useSidebarContext();
     return (
-        <div className='sidebar-option flex justify-center content-center group'>
+        <Link to={to} className='sidebar-option flex justify-center content-center group'>
             <div className='sidebar-icon flex content-center justify-center text-black group-hover:rotate-12 group-hover:translate-x-1 group-hover:text-primaryStrong duration-100'>
                 {icon}
             </div>
@@ -57,7 +58,7 @@ const SidebarOption = ({ icon, text, number = "" }) => {
             <div className={`text-slate-500 ml-auto mr-4 ${!toggleSidebar && 'hidden'}`}>
                 {number}
             </div>
-        </div>
+        </Link>
     );
 };
 // 
