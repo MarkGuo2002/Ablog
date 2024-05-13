@@ -22,7 +22,7 @@ const Authentication = () => {
     setPassword('');
     if (data.token) {
       localStorage.setItem('token', data.token);
-      window.location.href = '/home';
+      window.location.href = '/';
     } else {
       alert('Login failed!');
     }
@@ -51,12 +51,12 @@ const Authentication = () => {
   };
 
   return (
-    <form className='flex gap-4 flex-col items-center p-8 pt-8 pb-16 m-2 rounded-xl drop-shadow-sm border border-slate-100 shadow-xl w-7/12'>
+    <form className='flex gap-4 flex-col items-center p-8 pt-8 pb-16 m-2 rounded-xl drop-shadow-sm border-2 border-slate-100 shadow-xl w-7/12'>
       <h1 className="text-black text-2xl font-bold my-4  text-center">Welcome! 👋 <br></br> Are you <span className=' text-primaryStrong'>Ablog</span>ger?</h1>
       <div className='flex gap-2 items-center'>
-        <label className=' font-semibold'>Username</label>
+        <label className=' font-semibold text-black'>Username</label>
         <input
-          className='block w-32 p-2 border border-gray-300 rounded'
+          className='block w-32 p-2 border border-gray-300 rounded text-black'
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -64,9 +64,9 @@ const Authentication = () => {
       />
       </div>
       <div className='flex gap-2 items-center'>
-        <label className=' font-semibold'>Password</label>
+        <label className=' font-semibold text-black'>Password</label>
         <input
-          className='block w-32 p-2 border border-gray-300 rounded'
+          className='block w-32 p-2 border border-gray-300 rounded text-black'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

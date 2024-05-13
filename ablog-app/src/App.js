@@ -10,29 +10,33 @@ import MyBlogs from './components/MyBlogs';
 import Drafts from './components/Drafts';
 import Trash from './components/Trash';
 import Personalize from './components/Personalize';
+import { useTheme } from './utils/ThemeProvider';
 
 
 
 function App() {
 
+  const { theme } = useTheme();
   return (
-    <Router>
-      <Routes>
-        {/* Home route */}
-        <Route element={<ProtectedRoute/>}>
-          <Route path="/home" element={<Home />}>
-            <Route index element={<Navbar />} />  
-            <Route path="new-blog" element={<NewBlog />} />
-            <Route path="my-blogs" element={<MyBlogs />} />
-            <Route path="drafts" element={<Drafts />} />
-            <Route path="trash" element={<Trash />} />
-            <Route path="personalize" element={<Personalize />} />
+    <div className={`app`} data-theme={theme}>
+      <Router>
+        <Routes>
+          {/* Home route */}
+          <Route element={<ProtectedRoute/>}>
+            <Route path="/" element={<Home />}>
+              <Route index element={<MyBlogs />} />  
+              <Route path="new-blog" element={<NewBlog />} />
+              <Route path="my-blogs" element={<MyBlogs />} />
+              <Route path="drafts" element={<Drafts />} />
+              <Route path="trash" element={<Trash />} />
+              <Route path="personalize" element={<Personalize />} />
+            </Route>
           </Route>
-        </Route>
-        {/* Authentication route */}
-        <Route path="/authentication" element={<UnauthenticatedHome/>}/>
-      </Routes>
-    </Router>
+          {/* Authentication route */}
+          <Route path="/authentication" element={<UnauthenticatedHome/>}/>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Customizing the Quill Editor */
+body .ql-toolbar {
+  border-radius: 100px !important;
+  border:0px !important;
+  color: #000 !important; /* Change as needed */
+  background: #ececf2 !important; 
+}
+body .ql-container {
+    border:0px !important; 
+    color:black !important;
+    height:100% !important;
+    }
+
+body.dark .ql-toolbar {
+border:0px; /* Dark mode border */
+background: #ececf2 !important; 
+
+
+
+}
+body.dark .ql-container {
+border:0px; /* Dark mode border */
+color:white !important;
+}
+
+
+.ql-toolbar .ql-picker-label,
+.ql-toolbar .ql-picker-item {
+  color: #000 !important; /* Menu text color */
+}
+
+.ql-snow .ql-stroke {
+  stroke: #000 !important; /* Color for icons */
+}
+
+/* If using Tailwind, consider using their utility classes directly in your component or HTML */
+
+
+
+/* Use CSS variables in your styles */
+body {
+    @apply bg-white text-black
+}
+
+body.dark {
+    @apply bg-gray-800 text-white; /* Dark mode styles */
+}
+
+.border {
+    border-color: var(--border-color);
+}
+
+
+
 .transition-width{
     transition: width 0.3s;
 }

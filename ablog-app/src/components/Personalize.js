@@ -1,8 +1,10 @@
+import Navbar from "./Navbar";
 
 const Personalize = () => {
     return (
         <div>
-        <h1>Personalize</h1>
+            <Navbar />
+            <h1>Personalize</h1>
         </div>
     );
     }

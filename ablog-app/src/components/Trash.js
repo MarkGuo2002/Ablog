@@ -1,8 +1,9 @@
-
+import Navbar from "./Navbar";
 const Trash = () => {
     return (
         <div>
-        <h1>Trash</h1>
+            <Navbar />
+            <h1>Trash</h1>
         </div>
     );
     }
