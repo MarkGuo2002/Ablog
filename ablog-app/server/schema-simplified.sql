@@ -2,7 +2,7 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    user_profile_photo_url VARCHAR(255),
+    user_profile_photo VARCHAR(255),
     bio TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -11,19 +11,14 @@ CREATE TABLE users (
 CREATE TABLE blogs (
     blog_id SERIAL PRIMARY KEY,
     title VARCHAR(255) UNIQUE NOT NULL,
+    title_emoji VARCHAR(255) UNIQUE NOT NULL,
+    portrait_photo TEXT,
     content TEXT NOT NULL,
     is_trash BOOLEAN DEFAULT FALSE,
     blog_music_url VARCHAR(255),
-    blog_portrait_photo_url VARCHAR(255),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     user_id INT REFERENCES users(user_id) ON DELETE CASCADE
-);
-
-CREATE TABLE blog_photos (
-    photo_id SERIAL PRIMARY KEY,
-    photo_url VARCHAR(255) NOT NULL,
-    blog_id INT REFERENCES blogs(blog_id) ON DELETE CASCADE
 );
 
 -- Triggers and indexes remain similar; just ensure they reference the correct keys.
@@ -51,7 +46,7 @@ EXECUTE PROCEDURE trigger_set_timestamp();
 
 -- Indexes
 CREATE INDEX idx_blogs_user_id ON blogs(user_id);
-CREATE INDEX idx_blog_photos_blog_id ON blog_photos(blog_id);
+
 
 
 -- Your design takes into account key aspects of data integrity, performance optimization with indexing, and automatic maintenance of audit fields using triggers. Just ensure the following:

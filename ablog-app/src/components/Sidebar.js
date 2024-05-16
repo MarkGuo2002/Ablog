@@ -11,7 +11,7 @@ FaFile FaRegEnvelope
 const Sidebar = () =>{
     const { toggleSidebar, setToggleSidebar } = useSidebarContext();
     return(
-        <div className={` dark:bg-night-900 transition-width duration-300 ease-in-out ${toggleSidebar ? 'w-60' : 'w-16'}  fixed top-0 left-0 h-screen flex flex-col border-r-2 border-[#f5f5f5] dark:border-r-0 bg-white`} >
+        <div className={`z-10 dark:bg-night-900 transition-width duration-300 ease-in-out ${toggleSidebar ? 'w-60' : 'w-16'}  fixed top-0 left-0 h-screen flex flex-col border-r-2 border-[#f5f5f5] dark:border-r-0 bg-white`} >
             <div className=' logo-burger flex justify-start items-center px-4 pt-6 pb-2'>
                 <div className={`${toggleSidebar ? 'block' : 'hidden'} flex items-center`}>
                     <img src={Logo} alt="Logo" className="w-8 h-8" />
@@ -49,7 +49,7 @@ const Sidebar = () =>{
 const SidebarOption = ({ icon, text, number = "", to }) => {
     const { toggleSidebar } = useSidebarContext();
     const location = useLocation();
-    const isActive = location.pathname === to ? 'bg-primary' : '';
+    const isActive = location.pathname === to ? 'bg-primary dark:bg-night-400' : '';
     return (
         <Link to={to} className={`${isActive} sidebar-option flex justify-center content-center group dark:text-white dark:bg-night-900`}>
             <div className='dark:text-white sidebar-icon flex content-center justify-center text-black group-hover:rotate-12 group-hover:translate-x-1 group-hover:text-primaryStrong duration-100'>
@@ -72,7 +72,7 @@ const NightMode = () => {
     const string = theme==='dark' ? 'Night Mode' : 'Day Mode';
     const icon = theme==='dark' ? <FaSun size='24'/> : <FaMoon size='24'/>;
     return(
-    <div onClick={toggleTheme} className='dark:bg-night-800 mt-auto bg-slate-200 p-4 flex items-center justify-center cursor-pointer group'>
+    <div onClick={toggleTheme} className='dark:bg-night-500 mt-auto bg-slate-200 p-4 flex items-center justify-center cursor-pointer group'>
                 <i className='dark:text-gray-50 text-black group-hover:text-gray-500 duration-300'>
                     {icon}
                 </i>

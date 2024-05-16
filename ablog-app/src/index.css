@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Customizing the Quill Editor */
 body .ql-toolbar {
   border-radius: 100px !important;
