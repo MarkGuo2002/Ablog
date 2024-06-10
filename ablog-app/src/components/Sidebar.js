@@ -31,9 +31,9 @@ const Sidebar = () =>{
 
 
             <div className='sidebar-options-container flex flex-col items-center justify-center gap-1 mt-5' >
-                <SidebarOption icon={ <FaRegEnvelope size='20'/>} text='My Blogs' number='12' to='/my-blogs'/>
+                <SidebarOption icon={ <FaRegEnvelope size='20'/>} text='My Blogs' number='' to='/my-blogs'/>
                 {/* <SidebarOption icon={ <FaRegClipboard size='20'/>} text='Drafts' number='1' to='/drafts'/> */}
-                <SidebarOption icon={ <FaRegTrashCan size='20'/>} text='Trash' number='3' to='/trash'/>
+                <SidebarOption icon={ <FaRegTrashCan size='20'/>} text='Trash' number='' to='/trash'/>
                 <SidebarOption icon={ <FaPalette size='20'/>} text='Personalize' to='/personalize'/>
             </div>
             
@@ -70,7 +70,7 @@ const NightMode = () => {
     const { theme, toggleTheme } = useTheme();
     const { toggleSidebar } = useSidebarContext();
     const string = theme==='dark' ? 'Night Mode' : 'Day Mode';
-    const icon = theme==='dark' ? <FaSun size='24'/> : <FaMoon size='24'/>;
+    const icon = theme==='dark' ? <FaMoon size='24'/> : <FaSun size='24'/>;
     return(
     <div onClick={toggleTheme} className='dark:bg-night-500 mt-auto bg-slate-200 p-4 flex items-center justify-center cursor-pointer group'>
                 <i className='dark:text-gray-50 text-black group-hover:text-gray-500 duration-300'>

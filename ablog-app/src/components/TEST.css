@@ -1,0 +1,56 @@
+.sidebar-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.1s, color 0.1s;
+  }
+  
+  .sidebar-option.dark {
+    color: white;
+    background-color: var(--night-900);
+  }
+  
+  .sidebar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    transition: transform 0.1s, color 0.1s;
+  }
+  
+  .sidebar-icon.dark {
+    color: white;
+  }
+  
+  .sidebar-icon.group-hover {
+    transform: rotate(12deg);
+    translate: translateX(0.25rem);
+    color: var(--primary-strong);
+  }
+  
+  .text-element {
+    margin-left: 1.25rem; /* ml-5 */
+    font-weight: 600;
+    color: black;
+    transition: color 0.1s, translate 0.1s;
+  }
+  
+  .text-element.dark {
+    color: white;
+  }
+  
+  .text-element.group-hover {
+    color: var(--primary-strong); /* Define --primary-strong in your CSS */
+    translate: translateX(0.25rem); /* translate-x-1 */
+  }
+  
+  .text-slate-500 {
+    color: #6B7280; /* Slate-500 */
+    margin-left: auto;
+    margin-right: 1rem; /* mr-4 */
+  }
+  
+  .text-slate-500.dark {
+    color: white;
+  }
+  

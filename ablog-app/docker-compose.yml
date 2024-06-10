@@ -1,0 +1,27 @@
+services:
+  db:
+    build: ./db.Dockerfile
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ablog
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: ./react-express.Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    environment:
+      PGUSER: admin
+      PGPASSWORD: 1234
+      PGDATABASE: ablog
+      PGHOST: db
+      PGPORT: 5432
+
+volumes:
+  db_data:

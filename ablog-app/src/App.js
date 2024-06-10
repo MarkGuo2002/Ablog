@@ -26,6 +26,7 @@ function App() {
             <Route path="/" element={<Home />}>
               <Route index element={<MyBlogs />} />  
               <Route path="new-blog" element={<NewBlog />} />
+              <Route path="/edit-blog/:blogId" element={<NewBlog />} />
               <Route path="my-blogs" element={<MyBlogs />} />
               <Route path="drafts" element={<Drafts />} />
               <Route path="trash" element={<Trash />} />
