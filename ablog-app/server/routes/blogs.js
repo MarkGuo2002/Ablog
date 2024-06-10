@@ -6,17 +6,6 @@ const upload = require('../config/upload');
 
 const jwt_secret = 'helloworld'; // Change this to your own secret
 
-// Endpoint for uploading files
-// router.post('/upload', upload.fields([{ name: 'portrait', maxCount: 1 }, { name: 'music', maxCount: 1 }]), async (req, res) => {
-//     try {
-//       const portraitPath = req.files['portrait'] ? `/uploads/${req.files['portrait'][0].filename}` : null;
-//       const musicPath = req.files['music'] ? `/uploads/${req.files['music'][0].filename}` : null;
-//       res.status(200).json({ portraitPath, musicPath });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send('Error uploading file');
-//     }
-//   });
 
 
 // save a new blog, in the body there is title 

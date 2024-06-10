@@ -13,6 +13,7 @@ CREATE TABLE blogs (
     title VARCHAR(255) UNIQUE NOT NULL,
     title_emoji TEXT UNIQUE NOT NULL,
     portrait_photo VARCHAR(255),
+    blog_music_url VARCHAR(255),
     content TEXT NOT NULL,
     is_trash BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
